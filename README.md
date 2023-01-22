@@ -1,3 +1,3 @@
 # git_test
 
-Hell, Odin!
+Hello and welcome to my first repository.
