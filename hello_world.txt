@@ -1,1 +1,3 @@
 Hell, World!
+
+Today I worked with CLIPS which stands for C Language Integrated Production System.
