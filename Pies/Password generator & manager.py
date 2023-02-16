@@ -1,3 +1,5 @@
+#! python3
+
 from random import randint as rr
 
 #import json
@@ -8,19 +10,25 @@ from kryptor import pasNcrypt
 
 count = 0
 
-fn = r'C:\Users\Abid Sheri\Desktop\Pies\pword.txt'
+fn = r'C:\Users\M Sheharyar\Desktop\repos\git_test\Pies\pword.txt'
 
 with open(fn, 'r') as f:
 
-    see = input("\nWould you like to view stored passwords?(y/n) ")
+    for line in f:
 
-    if see.lower() == 'y':
+        count += 1
+
+see = input("\nWould you like to view stored passwords?(y/n) ")
+
+if see.lower() == 'y':
+
+    with open(fn, 'r') as f:
+
+        print("\n")
 
         for line in f:
 
             print(line)
-
-            count += 1
 
 go = input("\nDo you want to assign some passwords?(y/n) ")
 
@@ -78,10 +86,19 @@ if len(passlock) != 0:
 
         for s, p in passlock.items():
 
-            count += 1
-            p = pasNcrypt(p)
-            pastr = '\n'+ str(count) + '. ' + p + ' for the site ' + s
-            f.write(pastr)
+            if count > 0:
+
+                count += 1
+                p = pasNcrypt(p)
+                pastr = '\n' + str(count) + '. ' + p + ' for the site ' + s
+                f.write(pastr)
+
+            else:
+
+                count += 1
+                p = pasNcrypt(p)
+                pastr = str(count) + '. ' + p + ' for the site ' + s
+                f.write(pastr)
         
 
 
@@ -91,3 +108,5 @@ for s, p in passlock.items():
 
 if go.lower() == 'n':
     print("\nYou didn't assign any new passwords.")
+
+exit()

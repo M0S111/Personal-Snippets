@@ -10,6 +10,6 @@ else:
 
     insert = pyperclip.paste()
 
-address = '?sl=ur&tl=en&text=' + insert + '&op=translate'
+address = '?sl=auto&tl=en&text=' + insert + '&op=translate'
 
 webbrowser.open('https://translate.google.com/' + address)
