@@ -17,6 +17,12 @@ em_regex = re.compile(r'''(\d+|\w+)
 
 em = em_regex.findall('stormbrewer@yandex.org')
 
+dom_regex = re.compile(r'''(/|//www\.|www\.)?(\w+(-)*\w+)(\.)''',re.VERBOSE)
+
+dom = dom_regex.search('www.xakep.ru')
+
 print(em)
+
+print(dom.group(2))
 
 #txt = str(pyperclip.paste())

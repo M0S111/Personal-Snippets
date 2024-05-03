@@ -1,3 +1,5 @@
+#! python3
+
 import os,sys,re,subprocess
 
 filename = sys.argv[0]

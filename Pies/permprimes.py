@@ -1,5 +1,3 @@
-from math import sqrt as sq
-
 def prime(prime = input("State your range. ")):
     
     prime=int(prime)
@@ -12,37 +10,16 @@ def prime(prime = input("State your range. ")):
     
     for n in rng:
 
-        if (n%2==0) & (sq(n) != type(float)):
+        if n == 2:
+            prime_pos.append(n)
+
+        elif (n%2==0) or ((n**0.5)%1 == 0):
             prime_neg.append(n)
-            
+
         else:
             prime_pos.append(n)
-            
-
-    prime_pos.insert(1,2)
-    prime_neg.remove(2)
-    prime_neg.remove(0)
 
     print("These numbers aren't prime:",prime_neg)
     print("\nThese numbers are prime:",prime_pos)
 
-
-
-
 prime()
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-    
-    

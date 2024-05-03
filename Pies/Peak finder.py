@@ -13,3 +13,12 @@ for i in myray:
     if i > check:
         check = i
 print("\n",check)
+
+
+least = myray[0]
+
+for i in myray:
+    if i < least:
+        least = i
+print("\n",least)
+        
