@@ -12,7 +12,8 @@ class LinkedList{
 	constructor(){
 
 		this.head = null; /*start of list*/
-		this.size = 0;
+		this.tail = null; /*end of list*/
+		this.size = 0; /*size of list*/
 	}
 
 
@@ -22,25 +23,50 @@ class LinkedList{
 
 		var current;
 
-		if (this.head == null){ /*assign new node as head of linked list if head is null*/
+		if (this.tail == null){ /*assign new node as head & tail of linked list if list is empty*/
 
 			this.head = node;
+			this.tail = this.head;
 		}
 
-		else{ /*if head isn't null set current variable to head node and iterate to last node*/
+		else{ /*if tail isn't null set current variable to tail node and its pointer next to new node*/
 
-			current = this.head;
+			current = this.tail;
 
-			while (current.next){
+			current.next = node;
 
-				current = current.next;
-			}
+			this.tail = current.next;
 
-			current.next = node; /*add new node at end of list*/
+			// current = this.head;
+
+			// while (current.next){
+
+			// 	current = current.next;
+			// }
+
+			// current.next = node; /*add new node at end of list*/
 
 		}
 
 		this.size++; /*increment size when adding node*/
+	}
+
+	pushAtFront(element){
+
+		var node = new Node(element);
+
+		var current = this.head;
+
+		node.next = current;
+
+		this.head = node;
+
+		if (this.tail == null){
+
+			this.tail = this.head;
+		}
+
+		this.size++;
 	}
 
 	pop(){ /*remove & return element from tail*/
@@ -81,8 +107,27 @@ class LinkedList{
 		
 	}
 
+	popAtFront(){
 
-	removeAt(idx){ /*return element at index without removal*/
+		var current = this.head;
+
+		if (this.head == null){
+			throw "Empty List!";
+		}
+
+		this.head = current.next;
+
+		if (this.head == null){
+			this.tail = null;
+		}
+
+		this.size--;
+
+		return console.log(current.element);
+	}
+
+
+	removeAt(idx){ /*return element at index with removal*/
 
 		var current = this.head;
 
@@ -91,7 +136,7 @@ class LinkedList{
 		var count = 0; /*to track list traversal*/
 		
 
-		if (current.next == null || idx == 0) { /*return head when index is 0 or list has 1 element*/
+		if (current.next == null) { /*return head when index is 0 or list has 1 element*/
 			
 
 			this.head = null;
@@ -100,6 +145,15 @@ class LinkedList{
 
 			return console.log(current.element);
 
+		}
+
+		else if (idx == 0) {
+
+			this.head = current.next;
+
+			this.size--;
+
+			return console.log(current.element);
 		}
 
 		else { /*iterate through till count == index & remove*/
@@ -152,6 +206,10 @@ class LinkedList{
 
 	}
 
+	lsize(){
+		return console.log(this.size);
+	}
+
 	print(){
 
 		var current = this.head;
@@ -161,7 +219,9 @@ class LinkedList{
 
 		if (current.next == null) {
 
-			return console.log(current.element);
+			result.push(current.element);
+
+			return console.log(result);
 
 		}
 
@@ -187,6 +247,49 @@ class LinkedList{
 		}
 	}
 
+	isEmpty(){
+		return console.log(this.size == 0);
+	}
 }
 
 var ll = new LinkedList();
+
+ll.push(1);
+ll.push(2);
+ll.push(3);
+ll.push(4);
+ll.push(5);
+
+ll.lsize();
+
+ll.print();
+
+ll.removeAt(0);
+//ll.removeAt(0);
+//ll.removeAt(0);*/
+
+ll.pushAtFront(55);
+ll.pushAtFront(44);
+ll.pushAtFront(33);
+
+ll.print();
+
+ll.popAtFront();
+ll.popAtFront();
+
+ll.print();
+
+ll.lsize();
+
+ll.getAt(0);
+
+ll.print();
+
+ll.isEmpty();
+
+ll.pop();
+ll.pop();
+ll.pop();
+ll.pop();
+ll.pop();
+ll.isEmpty();
