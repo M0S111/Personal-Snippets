@@ -2,12 +2,12 @@ import decimal
 from decimal import Decimal
 
 
-##def Fibonacci(n): # Fibonacci by recursion (slowest)
-##
-##    if n <= 2:
-##        return 1
-##    else:
-##        return Fibonacci(n-2) + Fibonacci(n-1)
+# def Fibonacci(n): # Fibonacci by recursion (slowest)
+
+#    if n <= 2:
+#        return 1
+#    else:
+#        return Fibonacci(n-2) + Fibonacci(n-1)
 
 
 def Fibonacci(n): # Fibonacci using Binet's formula (fastest)

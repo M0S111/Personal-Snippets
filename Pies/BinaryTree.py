@@ -95,6 +95,18 @@ class BinaryTree:
             print(x.key)
             self.inorderWalk(x.right)
 
+    def levelWalk(self,root):
+        que = []
+        que.append(root)
+
+        while len(que) != 0:
+            node = que.pop(0)
+            print(node.key)
+            if (node.left):
+                que.append(node.left)
+            if (node.right):
+                que.append(node.right)
+
     def searchTree(self,x,k):
         while (x != None) and (k != x.key):
             if k < x.key:
@@ -125,14 +137,15 @@ t.insertNode(n6)
 t.insertNode(n7)
 
 t.inorderWalk(n)
+t.levelWalk(n)
 
-nextn = t.Successor(n3)
+# nextn = t.Successor(n3)
 
-#print(nextn.key)
+# #print(nextn.key)
 
-t.removeNode(n5)
+# t.removeNode(n5)
 
-t.inorderWalk(n)
+# t.levelWalk(n)
 
 #print(t.root.key)
 #print(t.searchTree(n,7).key)
