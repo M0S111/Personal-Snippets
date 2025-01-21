@@ -107,6 +107,27 @@ class BinaryTree:
             if (node.right):
                 que.append(node.right)
 
+    def levelWalkFunk(self,root):
+            que = []
+            out = []
+            que.append(root)
+
+            while len(que) != 0:
+                node = que.pop(0)
+                out.append(node.key)
+                if (node.left):
+                    que.append(node.left)
+                if (node.right):
+                    que.append(node.right)
+
+            quantity = 1
+            start_index = 0
+            while start_index < len(out):
+                end_index = start_index + quantity
+                print(out[start_index:end_index])
+                start_index = end_index
+                quantity *= 2
+
     def searchTree(self,x,k):
         while (x != None) and (k != x.key):
             if k < x.key:
